@@ -1,0 +1,59 @@
+.contact {
+  padding: 5rem 0 3rem;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.heading::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 3px;
+  background: var(--accent);
+  margin: 0.5rem auto 1.5rem;
+}
+
+.text {
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  color: var(--text-muted);
+}
+
+.email {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 2rem;
+  border-bottom: 2px dashed var(--accent);
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.resume, .social {
+  color: var(--text-muted);
+  font-weight: 500;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.resume:hover, .social:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
