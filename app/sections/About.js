@@ -49,7 +49,7 @@ export default function About() {
             <Image
               src="/images/abdul-malek.png"
               alt="Abdul Malek"
-              width={400}
+              width={350}
               height={350}
               className={styles.profileImage}
               priority
