@@ -13,11 +13,7 @@ export default function Sidebar() {
     <aside className={styles.sidebar}>
       <div className={styles.brand}>
         <h1 className={styles.name}>Abdul Malek</h1>
-<<<<<<< HEAD
         <p className={styles.role}>MERN Stack Developer</p>
-=======
-        <p className={styles.role}>MERN-Stack Developer</p>
->>>>>>> 9e2d4ac53770a07788ed4f03a3d061e5759e5699
       </div>
       <nav className={styles.nav} aria-label="Main navigation">
         <ul>
