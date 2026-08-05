@@ -12,8 +12,8 @@ export default function Sidebar() {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.brand}>
-        <h1 className={styles.name}>Jane Doe</h1>
-        <p className={styles.role}>Full-Stack Developer</p>
+        <h1 className={styles.name}>Abdul Malek</h1>
+        <p className={styles.role}>MERN Stack Developer</p>
       </div>
       <nav className={styles.nav} aria-label="Main navigation">
         <ul>
