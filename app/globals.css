@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 *,
 *::before,
 *::after {
@@ -47,8 +49,8 @@ button {
 
 .main-content {
   flex: 1;
-  margin-left: 18rem;
-  padding: 2rem;
+  margin-left: 22rem;
+  padding: 4rem 3rem 3rem;
 }
 
 @media (max-width: 768px) {
