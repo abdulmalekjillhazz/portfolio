@@ -1,4 +1,3 @@
-import styles from './Experience.module.css';
 import RevealOnScroll from '../../components/RevealOnScroll';
 
 const jobs = [
@@ -31,22 +30,22 @@ const jobs = [
 
 export default function Experience() {
   return (
-    <section id="experience" className={styles.experience}>
+    <section id="experience" className="py-20">
       <RevealOnScroll>
-        <h2 className={styles.heading}>Experience</h2>
-        <div className={styles.timeline}>
+        <h2 className="relative mb-12 text-3xl font-bold after:mt-2 after:block after:h-[3px] after:w-12 after:bg-[var(--accent)] after:content-['']">Experience</h2>
+        <div className="relative border-l-2 border-[var(--border)] pl-8">
           {jobs.map((job, idx) => (
-            <div key={idx} className={styles.item}>
-              <div className={styles.marker} />
-              <div className={styles.card}>
+            <div key={idx} className="relative mb-12">
+              <div className="absolute -left-[2.55rem] top-2 size-3.5 rounded-full border-[3px] border-[var(--bg)] bg-[var(--accent)] shadow-[0_0_0_2px_var(--border)]" />
+              <div className="rounded-lg bg-[var(--card-bg)] p-6 shadow-[3px_3px_0_var(--card-shadow)] transition-shadow duration-200 hover:shadow-[5px_5px_0_var(--card-shadow)]">
                 <h3>{job.title}</h3>
-                <p className={styles.company}>
-                  {job.company} <span>| {job.period}</span>
+                <p className="mb-2 font-medium text-[var(--accent)]">
+                  {job.company} <span className="font-normal text-[var(--text-muted)]">| {job.period}</span>
                 </p>
-                <p className={styles.description}>{job.description}</p>
-                <div className={styles.tags}>
+                <p className="mb-4 text-[var(--text-muted)]">{job.description}</p>
+                <div className="flex flex-wrap gap-2">
                   {job.tags.map((tag) => (
-                    <span key={tag} className={styles.tag}>{tag}</span>
+                    <span key={tag} className="rounded-[20px] border border-[var(--border)] bg-[var(--bg-secondary)] px-3 py-[0.3rem] text-[0.8rem] font-medium text-[var(--text-muted)]">{tag}</span>
                   ))}
                 </div>
               </div>

@@ -1,17 +1,16 @@
 'use client';
 import { useTheme } from '../hooks/useTheme';
-import styles from './ThemeToggle.module.css';
 
 export default function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();
 
   return (
     <button
-      className={styles.toggle}
+      className="rounded-full p-2 text-[var(--text-muted)] transition-[background-color,transform,color] duration-200 ease-out hover:scale-110 hover:bg-[var(--bg)] hover:text-[var(--accent)] active:[&>span>svg]:scale-95 active:[&>span>svg]:rotate-30"
       onClick={toggleTheme}
       aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
     >
-      <span className={styles.icon} aria-hidden="true">
+      <span className="[&>svg]:transition-transform [&>svg]:duration-[400ms]" aria-hidden="true">
         {theme === 'light' ? (
           <svg viewBox="0 0 24 24" width="24" height="24">
             <circle cx="12" cy="12" r="5" fill="currentColor" />

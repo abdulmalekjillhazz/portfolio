@@ -14,14 +14,12 @@ export default function Hero() {
       className="min-h-screen flex items-center px-10 md:px-10 max-w-7xl relative overflow-hidden py-20 mx-auto"
     >
       <motion.div
-        className="absolute top-0 -left-40 w-[600px] h-[600px] rounded-full blur-[140px] opacity-25"
-        style={{ background: 'var(--accent)' }}
+        className="absolute -left-40 top-0 size-[600px] rounded-full bg-[var(--accent)] opacity-25 blur-[140px]"
         animate={{ scale: [1, 1.15, 1], opacity: [0.25, 0.35, 0.25] }}
         transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
       />
       <motion.div
-        className="absolute bottom-0 right-10 w-[350px] h-[350px] rounded-full blur-[120px] opacity-10"
-        style={{ background: 'var(--accent)' }}
+        className="absolute bottom-0 right-10 size-[350px] rounded-full bg-[var(--accent)] opacity-10 blur-[120px]"
         animate={{ scale: [1, 1.2, 1] }}
         transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
       />
@@ -39,15 +37,13 @@ export default function Hero() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="inline-flex items-center gap-2 w-fit px-4 py-2 rounded-full border text-xs font-medium"
-            style={{ borderColor: 'var(--border)', color: 'var(--text-secondary)' }}
+            className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--border)] px-4 py-2 text-xs font-medium text-[var(--text-muted)]"
           >
             <span className="relative flex h-2 w-2">
               <span
-                className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75"
-                style={{ background: 'var(--accent)' }}
+                className="animate-ping absolute inline-flex size-full rounded-full bg-[var(--accent)] opacity-75"
               />
-              <span className="relative inline-flex rounded-full h-2 w-10" style={{ background: 'var(--accent)' }} />
+              <span className="relative inline-flex h-2 w-10 rounded-full bg-[var(--accent)]" />
             </span>
             Available for freelance work
           </motion.div>
@@ -55,8 +51,7 @@ export default function Hero() {
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-sm md:text-base font-mono tracking-[0.3em] uppercase"
-            style={{ color: 'var(--accent)' }}
+            className="font-mono text-sm uppercase tracking-[0.3em] text-[var(--accent)] md:text-base"
           >
             Full-Stack Developer
           </motion.p>
@@ -74,18 +69,16 @@ export default function Hero() {
           <motion.h2
             variants={fadeUp}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-2xl md:text-3xl font-semibold leading-snug max-w-2xl"
-            style={{ color: 'var(--text-secondary)' }}
+            className="max-w-2xl text-2xl font-semibold leading-snug text-[var(--text-muted)] md:text-3xl"
           >
             I build fast, accessible web apps with the{' '}
-            <span style={{ color: 'var(--accent)' }}>MERN stack</span>.
+            <span className="text-[var(--accent)]">MERN stack</span>.
           </motion.h2>
 
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="max-w-xl text-base md:text-lg leading-relaxed"
-            style={{ color: 'var(--text-secondary)' }}
+            className="max-w-xl text-base leading-relaxed text-[var(--text-muted)] md:text-lg"
           >
             Full-stack developer focused on crafting performant, pixel-perfect
             interfaces and robust APIs — turning complex problems into intuitive
@@ -99,8 +92,7 @@ export default function Hero() {
           >
             <a
               href="#projects"
-              className="group relative flex items-center gap-2 px-8 py-4 rounded-full font-semibold overflow-hidden transition-transform duration-300 hover:scale-105"
-              style={{ background: 'var(--accent)', color: '#fff' }}
+              className="group relative flex items-center gap-2 overflow-hidden rounded-full bg-[var(--accent)] px-8 py-4 font-semibold text-white transition-transform duration-300 hover:scale-105"
             >
               <Sparkles size={16} />
               See my work
@@ -109,13 +101,11 @@ export default function Hero() {
 
             <a
               href="#contact"
-              className="group relative px-8 py-4 rounded-full font-semibold border-2 transition-all duration-300 hover:scale-105 hover:border-[var(--accent)]"
-              style={{ borderColor: 'var(--border)', color: 'var(--text-primary)' }}
+              className="group relative rounded-full border-2 border-[var(--border)] px-8 py-4 font-semibold text-[var(--text)] transition-all duration-300 hover:scale-105 hover:border-[var(--accent)]"
             >
               <span className="relative z-10">Get in touch</span>
               <span
-                className="absolute left-8 right-8 bottom-3 h-px scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300"
-                style={{ background: 'var(--accent)' }}
+                className="absolute bottom-3 left-8 right-8 h-px origin-left scale-x-0 bg-[var(--accent)] transition-transform duration-300 group-hover:scale-x-100"
               />
             </a>
           </motion.div>
@@ -123,21 +113,20 @@ export default function Hero() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="flex items-center gap-8 md:gap-12 mt-8 text-sm"
-            style={{ color: 'var(--text-secondary)' }}
+            className="mt-8 flex items-center gap-8 text-sm text-[var(--text-muted)] md:gap-12"
           >
             <div>
-              <span className="block text-3xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>10+</span>
+              <span className="mb-1 block text-3xl font-bold text-[var(--text)]">10+</span>
               Projects Built
             </div>
-            <div className="w-px h-12" style={{ background: 'var(--border)' }} />
+            <div className="h-12 w-px bg-[var(--border)]" />
             <div>
-              <span className="block text-3xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>MERN</span>
+              <span className="mb-1 block text-3xl font-bold text-[var(--text)]">MERN</span>
               Core Stack
             </div>
-            <div className="w-px h-12" style={{ background: 'var(--border)' }} />
+            <div className="h-12 w-px bg-[var(--border)]" />
             <div>
-              <span className="block text-3xl font-bold mb-1" style={{ color: 'var(--text-primary)' }}>100%</span>
+              <span className="mb-1 block text-3xl font-bold text-[var(--text)]">100%</span>
               Client Focused
             </div>
           </motion.div>
@@ -152,21 +141,16 @@ export default function Hero() {
           <motion.div
             whileHover={{ scale: 1.05, rotate: -1 }}
             transition={{ duration: 0.4 }}
-            className="w-64 h-80 rounded-3xl border-2 flex flex-col items-center justify-center gap-4 backdrop-blur-sm"
-            style={{
-              borderColor: 'var(--border)',
-              background: 'linear-gradient(160deg, var(--bg-secondary), transparent)',
-            }}
+            className="flex h-80 w-64 flex-col items-center justify-center gap-4 rounded-3xl border-2 border-[var(--border)] bg-[linear-gradient(160deg,var(--bg-secondary),transparent)] backdrop-blur-sm"
           >
             <motion.div
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-              className="w-20 h-20 rounded-2xl flex items-center justify-center"
-              style={{ background: 'var(--accent)', opacity: 0.15 }}
+              className="flex size-20 items-center justify-center rounded-2xl bg-[var(--accent)] opacity-15"
             >
-              <Code2 size={36} style={{ color: 'var(--accent)' }} />
+              <Code2 size={36} className="text-[var(--accent)]" />
             </motion.div>
-            <p className="text-sm font-medium text-center px-6" style={{ color: 'var(--text-secondary)' }}>
+            <p className="px-6 text-center text-sm font-medium text-[var(--text-muted)]">
               Building premium digital products since day one
             </p>
           </motion.div>

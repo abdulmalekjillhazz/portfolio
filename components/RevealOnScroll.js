@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
 import useReducedMotion from '../hooks/useReducedMotion';
-import styles from './RevealOnScroll.module.css';
 
 export default function RevealOnScroll({ children, className = '' }) {
   const ref = useRef(null);
@@ -29,7 +28,7 @@ export default function RevealOnScroll({ children, className = '' }) {
   return (
     <div
       ref={ref}
-      className={`${styles.reveal} ${visible ? styles.visible : ''} ${className}`}
+      className={`translate-y-6 opacity-0 transition-[opacity,transform] duration-[600ms] ease-out ${visible ? 'translate-y-0 opacity-100' : ''} ${className}`}
     >
       {children}
     </div>

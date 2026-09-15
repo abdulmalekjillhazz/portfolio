@@ -1,5 +1,4 @@
 import './globals.css';
-import './theme.css';
 import Sidebar from '../components/Sidebar';
 import { ThemeProvider } from '../hooks/useTheme';
 
@@ -10,12 +9,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
+    <html lang="en" suppressHydrationWarning className="scroll-smooth scroll-pt-20">
+      <body className="min-h-screen bg-[var(--bg)] font-sans leading-relaxed text-[var(--text)] transition-colors duration-300">
         <ThemeProvider>
-          <div className="app-layout">
+          <div className="flex min-h-screen flex-col md:flex-row">
             <Sidebar />
-            <main className="main-content">{children}</main>
+            <main className="flex-1 px-4 pb-12 pt-20 md:ml-72 md:px-12 md:pb-12 md:pt-16">{children}</main>
           </div>
         </ThemeProvider>
       </body>
