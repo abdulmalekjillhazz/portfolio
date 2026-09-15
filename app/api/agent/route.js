@@ -81,9 +81,9 @@ function isRateLimited(request) {
 
 export async function POST(request) {
   const geminiApiKey = process.env.GEMINI_API_KEY;
-  const openAiApiKey = process.env.OPENAI_API_KEY;
 
-  if (!geminiApiKey && !openAiApiKey) {
+
+  if (!geminiApiKey) {
     return Response.json(
       { error: 'The assistant needs a GEMINI_API_KEY or OPENAI_API_KEY before it can respond.' },
       { status: 503 },
