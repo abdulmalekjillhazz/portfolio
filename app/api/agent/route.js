@@ -13,20 +13,6 @@ Profile:
 - He is open to freelance work, new opportunities, and collaborations.
 - Contact email: abdulmalek67343367@gmail.com.`;
 
-function getReply(response) {
-  if (typeof response.output_text === 'string' && response.output_text.trim()) {
-    return response.output_text.trim();
-  }
-
-  return response.output
-    ?.filter((item) => item.type === 'message')
-    .flatMap((item) => item.content ?? [])
-    .filter((content) => content.type === 'output_text')
-    .map((content) => content.text)
-    .join('')
-    .trim();
-}
-
 function getGeminiReply(response) {
   return response.candidates
     ?.map((candidate) => candidate.content?.parts ?? [])
@@ -82,10 +68,9 @@ function isRateLimited(request) {
 export async function POST(request) {
   const geminiApiKey = process.env.GEMINI_API_KEY;
 
-
   if (!geminiApiKey) {
     return Response.json(
-      { error: 'The assistant needs a GEMINI_API_KEY or OPENAI_API_KEY before it can respond.' },
+      { error: 'The assistant needs a GEMINI_API_KEY before it can respond.' },
       { status: 503 },
     );
   }
@@ -119,82 +104,37 @@ export async function POST(request) {
   }
 
   try {
-    if (geminiApiKey) {
-      const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/${process.env.GEMINI_MODEL || 'gemini-2.0-flash'}:generateContent?key=${geminiApiKey}`,
-        {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            systemInstruction: {
-              parts: [{ text: instructions }],
-            },
-            contents: getGeminiContents(payload.history, message),
-            generationConfig: {
-              maxOutputTokens: 300,
-            },
-          }),
-          cache: 'no-store',
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/${process.env.GEMINI_MODEL || 'gemini-2.0-flash'}:generateContent?key=${geminiApiKey}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-      );
-
-      const data = await response.json().catch(() => ({}));
-
-      if (!response.ok) {
-        console.error('Gemini response error:', response.status, data.error?.message || data);
-        return Response.json(
-          { error: 'The assistant is unavailable right now. Please try again shortly.' },
-          { status: 502 },
-        );
-      }
-
-      const reply = getGeminiReply(data);
-
-      if (!reply) {
-        return Response.json(
-          { error: 'The assistant did not return a response. Please try again.' },
-          { status: 502 },
-        );
-      }
-
-      return Response.json({ reply });
-    }
-
-    if (!openAiApiKey) {
-      return Response.json(
-        { error: 'The assistant needs a GEMINI_API_KEY or OPENAI_API_KEY before it can respond.' },
-        { status: 503 },
-      );
-    }
-
-    const response = await fetch('https://api.openai.com/v1/responses', {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${openAiApiKey}`,
-        'Content-Type': 'application/json',
+        body: JSON.stringify({
+          systemInstruction: {
+            parts: [{ text: instructions }],
+          },
+          contents: getGeminiContents(payload.history, message),
+          generationConfig: {
+            maxOutputTokens: 300,
+          },
+        }),
+        cache: 'no-store',
       },
-      body: JSON.stringify({
-        model: process.env.OPENAI_MODEL || 'gpt-5',
-        instructions,
-        input: [...cleanHistory(payload.history), { role: 'user', content: message }],
-        max_output_tokens: 300,
-        store: false,
-      }),
-      cache: 'no-store',
-    });
+    );
+
     const data = await response.json().catch(() => ({}));
 
     if (!response.ok) {
-      console.error('OpenAI response error:', response.status, data.error?.message);
+      console.error('Gemini response error:', response.status, data.error?.message || data);
       return Response.json(
         { error: 'The assistant is unavailable right now. Please try again shortly.' },
         { status: 502 },
       );
     }
 
-    const reply = getReply(data);
+    const reply = getGeminiReply(data);
 
     if (!reply) {
       return Response.json(
